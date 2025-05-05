@@ -1,0 +1,10 @@
+echo 'dist
+build
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+*.log
+.DS_Store
+postcss.config.js
+tailwind.config.js' > .prettierignore
