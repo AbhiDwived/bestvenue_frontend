@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX, FiShoppingCart } from 'react-icons/fi';
+import Logo from "../assets/Images/Logo.jpg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,6 @@ const Header = () => {
     setActiveDropdown(activeDropdown === index ? null : index);
   };
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -27,33 +27,43 @@ const Header = () => {
   }, []);
 
   return (
-    <nav className="fixed-top navbar navbar-expand-lg bg-body-tertiary border">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary border px-3 p-3">
       <div className="container-fluid">
+        {/* Logo */}
         <Link className="navbar-brand" to="/">
-          <img src="https://www.weddingwire.in/assets/img/logos/gen_logoHeader.svg" alt="Logo" height="30" />
+          <img
+            src={Logo}
+            alt="Logo"
+            height="10"
+            width={100}
+            // style={{ height: '15%',width:'10%' }}
+          />
         </Link>
 
+        {/* Hamburger Icon - Visible only on mobile/tablet */}
         <button
-          className="navbar-toggler"
+          className="d-lg-none border-0 bg-transparent"
           type="button"
           onClick={toggleMenu}
-          aria-controls="navbarSupportedContent"
           aria-expanded={isOpen}
-          aria-label="Toggle navigation"
         >
-          {isOpen ? <FiX /> : <FiMenu />}
+          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
 
-        <div className={`navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 font-style-cursive">
+        {/* Collapsible Menu */}
+        <div
+          className={`w-100 mt-3 mt-lg-0 ${isOpen ? 'd-block' : 'd-none'} d-lg-flex justify-content-between align-items-center`}
+        >
+          {/* Left Side Links */}
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" to="/">Planning Tool</Link>
+              <Link className="nav-link" to="/">Planning Tool</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Wedding_venues">Wedding Venue</Link>
+              <Link className="nav-link" to="/Wedding_Venues">Wedding Venue</Link>
             </li>
 
-            {[1, 2, 3].map((idx) => (
+            {[1].map((idx) => (
               <li
                 className="nav-item dropdown"
                 key={idx}
@@ -79,13 +89,18 @@ const Header = () => {
             ))}
           </ul>
 
-          <div className="d-flex flex-column align-items-end">
-            <Link to="/vendor-login" className="btn btn-link text-black d-flex align-items-center gap-1 mb-2">
-              <FiShoppingCart size={18} /> <span>ARE YOU A VENDOR?</span>
+          {/* Right Side Buttons */}
+          <div className="d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-2">
+            <Link
+              to="/vendor"
+              className="btn btn-link text-black d-flex align-items-center gap-1"
+            >
+              <FiShoppingCart size={18} />
+              <span>ARE YOU A VENDOR?</span>
             </Link>
             <div className="d-flex gap-2">
               <Link className="btn btn-outline-danger" to="/login">Login</Link>
-              <Link className="btn btn-danger" to="/register">Free Sign Up</Link>
+              <Link className="btn btn-danger" to="/signup">Free Sign Up</Link>
             </div>
           </div>
         </div>
@@ -95,5 +110,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
