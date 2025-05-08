@@ -13,7 +13,7 @@ const cards = [
 
 const WeddingsTips = () => {
   return (
-    <div className="my-5">
+    <div className="m-5">
       <h2 className="text-center text-3xl font-bold text-red-500 mb-2">Wedding Ideas and Tips</h2>
       <p className="text-center text-gray-600 mb-5 text-lg">
         Get inspired with the latest trends and expert advice for your perfect day.

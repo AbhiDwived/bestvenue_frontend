@@ -93,7 +93,7 @@ const cards = [
 
 const FeaturedVendor = () => {
    return (
-      <div className="w-full mx-auto mt-5">
+      <div className="  m-5">
         <h2 className="text-2xl font-bold mb-4">Featured  Wedding Venues</h2>
         <Carousel showThumbs={false} infiniteLoop autoPlay centerMode centerSlidePercentage={33.33} show={4}>
           {cards.map((card) => (
