@@ -4,7 +4,7 @@ import AppStore from "../../src/assets/Images/AppStoreimage.png";
 
 export default function WeddingFooter() {
   return (
-    <footer className="bg-light pt-5 mt-5 border-top ">
+    <footer className="bg-light pt-5 w-full  border-top ">
 
       {/* Top Divider with Icon */}
       <div className="position-relative mb-4">

@@ -27,7 +27,7 @@ const Header = () => {
   }, []);
 
   return (
-    <nav className="fixed-top navbar navbar-expand-lg bg-body-tertiary border">
+    <nav className="fixed-top navbar navbar-expand-lg bg-body-tertiary border ">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img src="https://www.weddingwire.in/assets/img/logos/gen_logoHeader.svg" alt="Logo" height="30" />

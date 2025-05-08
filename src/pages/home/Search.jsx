@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { FaSearch } from "react-icons/fa";
-import venue1 from "../../assets/Images/crouselimage.png";
-import venue2 from "../../assets/Images/carouelimage2.png";
-import venue3 from "../../assets/Images/carouselimage3.png";
+import firstImage from "../../assets/Images/crouselimage.png";
+import secondImage from "../../assets/Images/carouelimage2.png";
+import thirdImage from "../../assets/Images/carouselimage3.png";
 
-const images = [venue1, venue2, venue3]; // Add more if needed
+const images = [firstImage, secondImage, thirdImage]; 
 
 const Searchpage = () => {
   const [category, setCategory] = useState('');
@@ -22,7 +22,7 @@ const Searchpage = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center bg-white overflow-hidden border-b border-gray-300">
+    <div className=" mt-5 grid grid-cols-1 md:grid-cols-2 items-center bg-white overflow-hidden border-b border-gray-300">
 
       {/* Left Section */}
       <div className="p-8 md:p-12">
@@ -49,7 +49,7 @@ const Searchpage = () => {
             placeholder="Location"
             className="flex-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
           />
-          <button className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition-all flex items-center justify-center">
+          <button className="bg-red-500 text-white px-2 py-2 rounded hover:bg-red-600 transition-all flex items-center justify-center">
             <FaSearch className="mr-2" />
             Find
           </button>
@@ -71,7 +71,8 @@ const Searchpage = () => {
       <div className="relative  h-full overflow-hidden">
         <img
            src={images[currentImageIndex]}
-          // alt={card.title}
+          //  src={firstImage}
+          alt="image not found"
           className="w-full h-full object-cover"
           style={{ height: "384px" }}
         />

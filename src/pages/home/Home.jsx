@@ -47,7 +47,7 @@ const Home = () => {
 
   return (
 
-    <div className="w-full min-h-screen  ">
+    <div className="w-full min-h-screen  border-b border-gray-300  ">
       <SearchPage />
 
       {/* Heading */}

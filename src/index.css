@@ -11,6 +11,16 @@
   display: none;
   /* Safari and Chrome */
 }
+.custom-clipped-image {
+  clip-path: ellipse(90px 150px at 0% 50%);
+}
+.curved-mask {
+  clip-path: ellipse(90px 150px at 0% 50%);
+}
+.mains.curved-mask {
+  clip-path: ellipse(90px 270px at 0% 48%);
+}
+
 
 /* 
 :root {
