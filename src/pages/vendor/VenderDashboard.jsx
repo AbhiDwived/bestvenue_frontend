@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AnalyticsChart from './VenderAnalyticsChart';
 import MessagesPage from "./VenderMessages";
 import CompletionCard from "./VenderCompletionCard";
@@ -8,8 +9,8 @@ import CompletionCard from "./VenderCompletionCard";
 export default function Dashboard() {
   return (
     <>
-    <div className="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <div className="col-span-2 bg-white p-6 rounded shadow">
+    <div className="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6 bg-gradient-to-r from-[#C6E7FF] to-[#eceeefe8] w-full ">
+      <div className="w-full col-span-2 bg-white p-6 rounded shadow">
         <h2 className="text-2xl font-bold mb-4">Analytics</h2>
         <AnalyticsChart />
         <div><MessagesPage/></div>
@@ -24,10 +25,28 @@ export default function Dashboard() {
           <p className="text-gray-600">
             Boost your credibility with reviews
           </p>
-          <button className="text-red-500 mt-2 hover:underline">
-            Request reviews
-          </button>
+          <Link to="/request-reviews" className="text-red-500 mt-2 hover:underline">
+  Request reviews
+</Link>
         </div>
+
+        <div className="bg-white p-4 rounded shadow">
+      <p className="text-xs text-gray-500 flex items-center mb-1">
+        💡 <span className="ml-1">TIP</span>
+      </p>
+      <h3 className="text-sm font-semibold text-gray-800 mb-1">
+        Improve your response time
+      </h3>
+      <p className="text-sm text-gray-700 mb-3">
+        Respond to leads within 24 hours to increase your booking opportunity!
+      </p>
+      <Link
+        to="/leads"
+        className="text-red-600 text-sm font-semibold hover:underline"
+      >
+        RESPOND TO LEADS &gt;
+      </Link>
+    </div>
         <div className="max-w-6xl mx-auto p-8 bg-white rounded-xl shadow-lg border border-gray-100">
       <div className="grid md:grid-cols-2 gap-8 items-center">
         {/* Text Content */}

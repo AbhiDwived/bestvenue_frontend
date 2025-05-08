@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link } from "react-router-dom";
-import { FaBold, FaItalic, FaUnderline, FaHeading, FaShareAlt } from 'react-icons/fa';
+import { FaBold, FaItalic, FaUnderline, FaHeading, FaShareAlt, FaUndo, FaRedo } from 'react-icons/fa';
 
 const VenderBusinessInfo = () => {
 
@@ -34,9 +34,9 @@ const VenderBusinessInfo = () => {
  
 return (
     <>
-    <div className="flex flex-col md:flex-row min-h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gradient-to-r from-[#C6E7FF] to-[#eceeefe8]">
       {/* Sidebar */}
-      <div className="w-full md:w-1/4 p-4 space-y-4 border-b md:border-b-0 md:border-r bg-gray-50">
+      <div className="w-full md:w-1/4 p-4 space-y-4 border-b md:border-b-0 md:border-r bg-gray-50 bg-gradient-to-r from-[#C6E7FF] to-[#eceeefe8]">
         <nav className="mt-4 space-y-3 font-medium text-[13px] text-gray-700">
           <Link to="/business-details" className="flex items-center space-x-2 hover:text-red-600">
             <span>📄</span>
@@ -149,6 +149,19 @@ return (
         >
           <FaHeading />
         </button>
+        <button
+          onClick={() => formatText("undo")}
+          className="text-gray-600 hover:text-black"
+        >
+          <FaUndo />
+        </button>
+
+        <button
+          onClick={() => formatText("redo")}
+          className="text-gray-600 hover:text-black"
+        >
+          <FaRedo />
+        </button>
         
         <button
           onClick={() => alert("Sharing functionality coming soon...")}
@@ -167,7 +180,40 @@ return (
         suppressContentEditableWarning={true}
       >
         {/* Optional default content */}
-        <p>Start describing your wedding business here...</p>
+        <section>
+    <h1 className="text-2xl font-bold mb-4">Diamond Deep Banquet Hall</h1>
+    <p className="text-sm leading-relaxed">
+      Diamond Deep Banquet Hall is a wedding venue based out in the city of Delhi. This venue provides for all your needs under one roof. It is one of the perfect venues to host all kinds of ceremonies or celebrations. They will ensure to make your celebration eventful and worth remembering a lifetime. It is the best place for hosting any kind of nuptial ceremonies. Celebrate your occasion and make it memorable by booking a spot at Diamond Deep Banquet Hall today!
+    </p>
+  </section>
+
+  {/* Facilities and Capacity */}
+  <section>
+    <h2 className="text-xl font-semibold mb-3 border-b pb-1">Facilities and Capacity</h2>
+    <p className="text-sm leading-relaxed">
+      Diamond Deep Banquet Hall offers you an indoor space that can easily accommodate a guest list of 350 people at a time without any hodge-podge. They provide facilities like basic electricity and lighting with a complete power backup to make sure there is no stoppage in your celebrations. Enjoy the biggest night of your life with full fervour and sit back without thinking about power cuts.
+    </p>
+    <p className="text-sm mt-2 leading-relaxed">
+      Additionally, the venue offers ample parking space along with the benefit of on-spot valets. The in-house decoration and planning team ensures a beautifully adorned event area, and outside decorators are welcome to speed up the process if needed.
+    </p>
+  </section>
+
+  {/* Services Offered */}
+  <section>
+    <h2 className="text-xl font-semibold mb-3 border-b pb-1">Services Offered</h2>
+    <p className="text-sm mb-3 leading-relaxed">
+      Diamond Deep Banquet Hall provides a wide variety of wedding planning services for all your wedding functions, ensuring the most memorable experience. Services include:
+    </p>
+    <ul className="list-disc pl-5 text-sm space-y-1">
+      <li>Guest accommodation</li>
+      <li>24*7 service staff</li>
+      <li>Bridal dressing room</li>
+      <li>Parking area with valet service</li>
+      <li>In-house catering</li>
+      <li>In-house decor and planning team</li>
+      <li>In-house sound and DJ</li>
+    </ul>
+  </section>
       </div>
     </div>
 

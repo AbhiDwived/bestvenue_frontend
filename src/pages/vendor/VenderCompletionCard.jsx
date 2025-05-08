@@ -1,3 +1,5 @@
+import React from "react";
+import { Link } from "react-router-dom";
 export default function CompletionCard() {
     return (
       <div className="bg-white p-4 rounded shadow flex flex-col items-center text-center">
@@ -34,7 +36,9 @@ export default function CompletionCard() {
             </span>
           </div>
         </div>
-        <button className="text-red-500 mt-2 hover:underline">Add 5 photos</button>
+        <Link to="/Photos" className="text-red-500 mt-2 hover:underline">
+  Add 5 photos
+</Link>
           </div>
           
     );

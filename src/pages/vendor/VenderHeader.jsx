@@ -11,18 +11,19 @@ import {
 
 const Header = () => {
   return (
-    <>
-    <div className="border-b p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+    
+    <div className="w-full border-b p-4 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#C6E7FF] to-[#eceeefe8]"
+    style={{ textDecoration: "none" }}>
       {/* Navigation Links */}
-      <div className="flex flex-wrap justify-center gap-4 md:gap-10 items-center">
+      <div className="flex flex-wrap justify-center gap-4 md:gap-10 items-center" style={{ textDecoration: "none" }}>
         {/* Home */}
         <NavLink to="/vendor/dashboard" className="flex flex-col items-center text-sm text-gray-800">
-          <Briefcase className="w-5 h-5 md:w-6 md:h-6" />
+          <Briefcase className="w-5 h-5 md:w-6 md:h-6 focus-visible:outline-none" />
           <span className="hidden md:block">Home</span>
         </NavLink>
 
         {/* Storefront */}
-        <NavLink to="/vendor/Storefront" className="flex flex-col items-center text-sm text-gray-800">
+        <NavLink to="/vendor/storefront" className="flex flex-col items-center text-sm text-gray-800">
           <Store className="w-5 h-5 md:w-6 md:h-6" />
           <span className="hidden md:block">Storefront</span>
         </NavLink>
@@ -32,18 +33,18 @@ const Header = () => {
           <Mail className="w-5 h-5 md:w-6 md:h-6" />
           <span className="hidden md:block">Enquiries</span>
           <span className="absolute -top-1 -right-3 bg-red-600 text-white text-xs px-1.5 py-0.5 rounded-full">
-            311
+            10
           </span>
         </NavLink>
 
         {/* Reviews */}
-        <NavLink to="/reviews" className="flex flex-col items-center text-sm text-gray-800">
+        <NavLink to="/vendor/reviews" className="flex flex-col items-center text-sm text-gray-800">
           <Star className="w-5 h-5 md:w-6 md:h-6" />
           <span className="hidden md:block">Reviews</span>
         </NavLink>
 
         {/* Campus with "NEW" tag */}
-        <NavLink to="/campus" className="relative flex flex-col items-center text-sm text-gray-800">
+        <NavLink to="/vendor/campus" className="relative flex flex-col items-center text-sm text-gray-800">
           <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
           <span className="hidden md:block">Campus</span>
           <span className="absolute -top-2 right-0 bg-yellow-400 text-white text-[10px] px-1 rounded font-semibold">
@@ -52,7 +53,7 @@ const Header = () => {
         </NavLink>
 
         {/* Settings */}
-        <NavLink to="/settings" className="flex flex-col items-center text-sm text-gray-800">
+        <NavLink to="/vendor/settings" className="flex flex-col items-center text-sm text-gray-800">
           <Settings className="w-5 h-5 md:w-6 md:h-6" />
           <span className="hidden md:block">Settings</span>
         </NavLink>
@@ -71,7 +72,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-    </>
+    
   );
 };
 

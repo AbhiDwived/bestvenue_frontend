@@ -1,111 +1,88 @@
-
 import React from 'react';
-import image1 from "../../assets/Images/realwedding2.jpg";
 
-import { FaArrowRight } from "react-icons/fa";
-
-const RealWeddings = () => {
-  const weddings = [
+const WeddingTools = () => {
+  const cards = [
     {
-      Header: "Ankita & Advit",
-      photos: 57,
-      location: "Mumbai Central, Mumbai",
-      mainImage: { image1 },
-      thumbnails: [
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-      ],
+      title: "Wedding venues",
+      description: "Photos, reviews, and so much more... get in touch from here!",
+      link: "https://www.weddingwire.in/wedding-venues",
+      bgClass: "bg-rose-100",
     },
     {
-      Header: "Saumya & Rohit",
-      photos: 75,
-      location: "MG Road, Gurgaon",
-      mainImage: { image1 },
-      thumbnails: [
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-      ],
+      title: "Vendors",
+      description: "Find the top-rated wedding vendors near you in every category.",
+      link: "https://www.weddingwire.in/wedding-vendors",
+      bgClass: "bg-yellow-100",
     },
     {
-      Header: "Suminder & Deepika",
-      photos: 37,
-      location: "Dera Bassi, Zirakpur",
-      mainImage: { image1 },
-      thumbnails: [
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-      ],
+      title: "Your free wedding website",
+      description: "Share your wedding details - and your love story - with a customisable website.",
+      link: "https://www.weddingwire.in/wedding-website",
+      icon: "https://cdn1.weddingwire.in/assets/svg/original/illustration/websites.svg",
     },
     {
-      Header: "Sachee & Himanshu",
-      photos: 35,
-      location: "Samalka, South Delhi",
-      mainImage: { image1 },
-      thumbnails: [
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-        "https://via.placeholder.com/60x60",
-      ],
+      title: "Infinite inspiration",
+      description: "All the freshest wedding inspiration, trends and ideas in one place.",
+      link: "https://www.weddingwire.in/wedding-tips",
+      icon: "https://cdn1.weddingwire.in/assets/svg/original/illustration/lightbulb.svg",
+    },
+    {
+      title: "Planning tools",
+      description: "Custom planning tools to manage your checklist, budget, guests and vendors.",
+      link: "https://www.weddingwire.in/my-wedding-planner",
+      icon: "https://cdn1.weddingwire.in/assets/svg/original/illustration/notebook.svg",
     },
   ];
 
-  
-
   return (
-    <>
-      <div className="container mt-5">
-        <h2 className="mb-2">Real Weddings</h2>
-        <p className="text-muted mb-4">
-          Get inspired by real couples in your area and find wedding suppliers you love.
-        </p>
-      </div>
+    <section className="py-12 bg-gray-50">
+      <div className=" mx-auto px-4">
+        {/* Heading */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-gray-800">Enjoy planning your wedding</h2>
+          <p className="text-gray-600 mt-2">Start planning your wedding with us, it's free!</p>
+        </div>
 
-      <div className="container">
-        <div className="row">
-          {weddings.map((wedding, index) => (
-            <div className="col-md-6 col-lg-4 mb-4" key={index}>
-              <div className="card h-100 shadow-sm">
-                <img
-                  className="card-img-top"
-                  src={wedding.mainImage.image1}
-                  alt={`${wedding.Header} main image`}
-                  style={{ height: '200px', objectFit: 'cover' }}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{wedding.Header}</h5>
-                  <p className="card-text">
-                    <strong>Photos:</strong> {wedding.photos}<br />
-                    <strong>Location:</strong> {wedding.location}
-                  </p>
+        {/* Cards: Scrollable on mobile */}
+        <div className="overflow-x-auto md:overflow-visible">
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-pl-4 snap-x snap-mandatory md:snap-none px-1">
+            {cards.map((card, index) => (
+              <div
+                key={index}
+                className={`min-w-[80%] md:min-w-0 snap-start rounded-xl shadow-md p-6 flex flex-col justify-between ${
+                  card.bgClass || 'bg-white'
+                }`}
+              >
+                {card.icon && (
+                  <img
+                    src={card.icon}
+                    alt={`${card.title} icon`}
+                    className="w-14 h-14 mb-4"
+                  />
+                )}
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{card.title}</h3>
+                  <p className="text-gray-600 mb-4">{card.description}</p>
                 </div>
-                <div className="card-footer">
-                  <small className="text-muted">
-                    Last updated {Math.floor(Math.random() * 60)} mins ago
-                  </small>
-                </div>
+                <a
+                  href={card.link}
+                  className="text-red-600 font-medium hover:underline mt-auto"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {card.title.includes('website') ? 'Personalise your free website' :
+                  card.title.includes('venues') ? 'Explore venues' :
+                  card.title.includes('Vendors') ? 'Start your search' :
+                  card.title.includes('tools') ? 'Discover our tools' :
+                  'Get inspired here'}
+                </a>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-      <div className="container mt-5 text-center">
-        <button type="button" className="btn btn-danger m-3 text-bold font-weight-bolder">
-          Explore More Real Wedding <FaArrowRight style={{ color: "white" }} />
-        </button>
-      </div>
- 
-      
-
-    </>
+    </section>
   );
 };
 
-export default RealWeddings;
-
+export default WeddingTools;

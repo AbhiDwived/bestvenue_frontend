@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import WeddingVenuesCity from "./WeddingVenuesCity";
 
 import Agra from "../../assets/agra.webp";
@@ -16,12 +16,14 @@ import Kolkata from "../../assets/kolkata.webp";
 import Indore from "../../assets/indore.webp";
 import Hyderabad from "../../assets/hyderabad.webp";
 import VenueImg from "../../assets/1.avif";
+import Noida from "../../assets/Images/Noida.jpg";
 
 export default function WeddingVenues() {
   const scrollRef = useRef();
 
   const cities = [
     { name: "Agra", venues: "126 venues", images: Agra },
+    {name: "Noida", venues: "126 venues", images: Noida},
     { name: "Patna", venues: "122 venues", images: Patna },
     { name: "Mumbai", venues: "920 venues", images: Mumbai },
     { name: "Lucknow", venues: "484 venues", images: Lucknow },
@@ -40,15 +42,15 @@ export default function WeddingVenues() {
     if (container) {
       const card = container.querySelector(".city-card");
       const cardWidth = card ? card.offsetWidth : 250;
-      const scrollAmount = direction === "left" ? -cardWidth / 2 : cardWidth / 2;
+      const scrollAmount = direction === "left" ? -cardWidth * 2 : cardWidth * 2;
 
       container.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
 
   return (
-    <div>
-      <div className=" p-2 relative">
+    <>
+      <>
         <h1 className="text-black text-2xl font-bold mb-4 text-left">
           Venues by Region
         </h1>
@@ -93,10 +95,10 @@ export default function WeddingVenues() {
             </div>
           ))}
         </div>
-      </div>
-      <div className="flex flex-col md:flex-row gap-2 p-4">
+      </>
+      <div className="flex flex-col md:flex-row gap-2 p-4 h-auto bg-amber-100">
         {/* Text Section */}
-        <div className="w-full md:w-1/2 p-3 bg-amber-400 lg:h-50 lg:mt-20 lg:w-170 text-black shadow-md shadow-black rounded-xl sm:mx-2 md:mx-0">
+        <div className="w-full mt-20 md:w-1/2 p-3 bg-white lg:h-50  lg:w-170 text-black shadow-md shadow-black rounded-xl sm:mx-2 md:mx-0">
           <h2 className="text-md sm:text-2xl md:text-3xl font-bold mb-2 lg:mt-10">
             Find your wedding venue
           </h2>
@@ -106,15 +108,22 @@ export default function WeddingVenues() {
         </div>
 
         {/* Image Section */}
-        <div className="w-full md:w-1/1 flex justify-center items-center">
+        <div className="w-full md:w-1/1 flex justify-center items-center ">
           <img
             src={VenueImg}
             alt="Venue"
-            className="w-full sm:w-full md:w-70 lg:w-full h-100 max-h-82 rounded-2xl object-cover"
+            className="w-full sm:w-full md:w-70 lg:w-full h-210 max-h-82 rounded-2xl object-cover"
           />
         </div>
       </div>
-      <WeddingVenuesCity />
-    </div>
+      {/* Additional Section */}
+      <div className="mt-12">
+        <WeddingVenuesCity />
+      </div>
+
+    </>
+  
   );
 }
+
+

@@ -6,7 +6,8 @@ import besthomeimage from "../../assets/Images/besthomeimage.jpg"
 const VenderStorefront = () => {
   return (
     <>
-    <div className="flex flex-col md:flex-row gap-6 p-6 bg-white">
+    <VenderHeader/>
+    <div className="flex flex-col md:flex-row gap-6 p-6 bg-white bg-gradient-to-r from-[#C6E7FF] to-[#eceeefe8]">
       {/* Image + Title */}
       <div className="w-full md:w-1/3 relative rounded-lg overflow-hidden shadow-lg ">
         <img
