@@ -78,15 +78,6 @@ const AppRouter = () => {
           <Route path='Photos' element={<VenderPhotos />} />
           <Route path='Photos' element={<venderPhotoUploader />} />
         </Route>
-
-        {/* <Route path="dashboard" element={<VenderDashboard />} />
-          <Route path="analytics" element={<VenderAnalyticsChart />} />
-          <Route path="messages" element={<VenderMessages />} />
-          <Route path="completion-card" element={<VenderCompletionCard />} />
-          <Route path="Storefront" element={<VenderStorefront />} />
-          <Route path="BusinessInfo" element={<VenderBusinessInfo />} /> */}
-
-
       </Routes>
     </Router>
   );

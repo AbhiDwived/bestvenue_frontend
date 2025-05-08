@@ -13,6 +13,7 @@ import { IoFastFoodOutline, IoPeople } from "react-icons/io5";
 import VenueNoida1 from "../../../assets/VenueNoida1.jpg";
 import VenueNoida2 from "../../../assets/VenueNoida2.jpg";
 import VenueNoida3 from "../../../assets/VenueNoida3.webp";
+import GreaterNoida from "../../../assets/Images/GreaterNoida.jpg";
 
 const BlueDimondVenue = () => {
   const [open, setOpen] = useState(false);
@@ -23,6 +24,8 @@ const BlueDimondVenue = () => {
     { src: VenueNoida1 },
     { src: VenueNoida2 },
     { src: VenueNoida3 },
+    { src: GreaterNoida },
+    
   ];
 
   const menuOptions = [
@@ -37,20 +40,30 @@ const BlueDimondVenue = () => {
       <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4">Blue Dimond Venue</h2>
 
       {/* Gallery */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 p-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 w-full">
         {images.map((img, i) => (
-          <img
+          <div
             key={i}
-            src={img.src}
-            alt={`Venue ${i + 1}`}
-            className="w-full h-60 object-cover rounded-lg cursor-pointer shadow-md hover:opacity-90"
+            className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 cursor-pointer"
             onClick={() => {
               setIndex(i);
               setOpen(true);
             }}
-          />
+          >
+            <img
+              src={img.src}
+              alt={`Venue ${i + 1}`}
+              className="w-full h-40 sm:h-48 md:h-56 object-cover"
+            />
+            <div className="p-2">
+              <h4 className="text-sm font-semibold">Venue {i + 1}</h4>
+              <p className="text-xs text-gray-500">Click to view more</p>
+            </div>
+          </div>
         ))}
       </div>
+
+
 
       {/* Lightbox */}
       <Lightbox open={open} close={() => setOpen(false)} slides={images} index={index} />
@@ -58,12 +71,12 @@ const BlueDimondVenue = () => {
       {/* Main Layout */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Left */}
-        <div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-2/3 p-3">
           <div className="flex flex-wrap gap-2 p-3 font-semibold rounded-2xl text-sm">
             {["About", "FAQ", "Reviews 7", "Promotions 1", "Map"].map((label, i) => (
               <button
                 key={i}
-                className="px-4 py-2 bg-white border-1 text-xs sm:text-sm"
+                className="px-4 py-2 bg-white border border-gray-300 rounded-xl text-xs sm:text-sm"
               >
                 {label}
               </button>

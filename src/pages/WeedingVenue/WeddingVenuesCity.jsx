@@ -130,10 +130,10 @@ export default function WeddingVenuesCity() {
     };
 
     return (
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-            <h1 className="text-black text-2xl font-bold mb-6">Venues In Noida</h1>
+        <>
+            <h1 className="text-black text-2xl font-bold mb-6 p-1">Venues In Noida</h1>
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            <div className=" p-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 w-full">
                 {venues.slice(0, displayVenues).map((venue, index) => (
                     <div
                         key={index}
@@ -143,37 +143,41 @@ export default function WeddingVenuesCity() {
                         <img
                             src={venue.images}
                             alt={venue.name}
-                            className="w-full h-40 sm:h-48 object-cover rounded-t-lg"
+                            className="w-full h-[200px] sm:h-[250px] object-cover rounded-t-lg"
                         />
-                        <div className="p-3 sm:p-4 text-black text-sm sm:text-base">
-                            <h2 className="text-base sm:text-lg font-semibold">{venue.name}</h2>
-                            <div className="flex justify-between mt-1 text-xs sm:text-sm">
-                                <p>{venue.rating} ⭐⭐⭐⭐⭐</p>
-                                <p>{venue.location}</p>
+                        <div className="p-3 sm:p-4 text-black sm:text-sm">
+                            <h1 className="text-lg sm:text-xl font-semibold truncate">{venue.name}</h1>
+                            <div className="flex justify-between mt-1 sm:text-sm">
+                                <p className="text-sm sm:text-base">{venue.rating} ⭐⭐⭐⭐⭐</p>
+                                <h6 className="text-sm sm:text-base">{venue.location}</h6>
                             </div>
                             <div className="flex justify-between mt-1 text-xs sm:text-sm">
-                                <p>{venue.price}</p>
-                                <p>{venue.capacity}</p>
+                                <h6 className="text-xs sm:text-sm">{venue.price}</h6>
+                                <h6 className="text-xs sm:text-sm">{venue.capacity}</h6>
                             </div>
-                            <p className="text-xs sm:text-sm text-red-500 mt-1">{venue.promotion}</p>
-                            <p className="text-xs sm:text-sm text-gray-600 mt-1">{venue.reviews} reviews</p>
+                            <h6 className="text-xs sm:text-sm text-red-500 mt-1">{venue.promotion}</h6>
+                            <h6 className="text-xs sm:text-sm text-gray-600 mt-1">{venue.reviews} reviews</h6>
                         </div>
                     </div>
                 ))}
             </div>
+
+
+
+            {/* Discovery Location */}
+
 
             {location.pathname !== "/Wedding_Venues_city" && (
                 <div className="mt-8 flex justify-center">
                     <button
                         onClick={handleShowAll}
                         type="button"
-                        className="bg-secondary text-white px-6 py-2 rounded-md hover:bg-opacity-80 transition"
+                        className="text-black font-bold  px-6 py-3 rounded-md bg-[#d1c8c1] hover:brightness-105 transition"
                     >
                         Discover venues in Noida
                     </button>
                 </div>
             )}
-        </div>
-
+        </>
     );
 }
