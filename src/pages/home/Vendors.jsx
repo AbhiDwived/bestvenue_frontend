@@ -2,7 +2,7 @@ import React from 'react'
 
 const Vendors = () => {
   return (
-    <div>Vendors</div>
+    <div>Vendors nn</div>
   )
 }
 
